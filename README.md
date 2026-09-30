@@ -24,7 +24,7 @@
 
 ## 🎯 Objetivos Cumplidos
 
-Siguiendo estrictamente los **Criterios de Revisión (Diapositiva 15)**:
+Siguiendo estrictamente los **Criterios de la Clase como de la Diapositiva**:
 
 - [x] **Estructura HTML semántica y accesible:** Uso de `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>` y `<footer>`, junto con roles ARIA, etiquetas descriptivas y navegación por teclado.
 - [x] **Diseño responsivo bien implementado:** Maquetación mobile-first adaptada a pantallas móviles (375px+), tablets y computadoras de escritorio mediante el sistema de Grid y Flexbox de **Tailwind CSS**.
