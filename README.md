@@ -72,7 +72,6 @@ FS-4-TM-25/
 ### Opción 2: Usando VS Code y Live Server (Recomendado para desarrollo)
 1. Abre la carpeta del proyecto en **Visual Studio Code**.
 2. Si tienes la extensión **Live Server** instalada, haz clic derecho sobre `index.html` y selecciona **"Open with Live Server"**.
-3. Esto levantará un servidor local en `http://127.0.0.1:5500/` con recarga automática al guardar cambios.
 
 ---
 
