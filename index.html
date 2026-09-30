@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Proyecto Integrador Frontend - Tienda virtual interactiva con carrito funcional, consumo de APIs y maquetación responsiva moderna.">
-  <title>TechStore IDT | Proyecto Final Frontend</title>
+  <meta name="description" content="TechStore - Tu tienda online de confianza en tecnología, audio inalámbrico, moda y accesorios modernos. Envíos a todo el país y pagos 100% seguros.">
+  <title>TechStore | Tu Tienda Online de Tecnología y Estilo</title>
 
   <!-- Tailwind CSS CDN (v3.4) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -34,12 +34,12 @@
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen antialiased selection:bg-blue-600 selection:text-white">
 
   <!-- ==========================================
-       HEADER & BARRA DE NAVEGACION (Slide 6 & 15)
+       HEADER & BARRA DE NAVEGACION
        ========================================== -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4" aria-label="Navegación principal">
       
-      <!-- Logotipo y Nombre del Proyecto -->
+      <!-- Logotipo de la Tienda -->
       <a href="#" class="flex items-center gap-3 group focus:outline-none">
         <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-blue-700 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -48,7 +48,7 @@
         </div>
         <div>
           <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">TechStore</span>
-          <span class="text-xs block text-slate-500 font-semibold tracking-wider uppercase">Grupo iDT • Frontend</span>
+          <span class="text-xs block text-slate-500 font-semibold tracking-wider uppercase">Tecnología & Estilo</span>
         </div>
       </a>
 
@@ -57,12 +57,13 @@
         <a href="#inicio" class="hover:text-blue-600 transition-colors">Inicio</a>
         <a href="#catalogo" class="hover:text-blue-600 transition-colors">Catálogo</a>
         <a href="#beneficios" class="hover:text-blue-600 transition-colors">Beneficios</a>
-        <a href="#criterios" class="hover:text-blue-600 transition-colors">Criterios de Evaluación</a>
+        <a href="#testimonios" class="hover:text-blue-600 transition-colors">Opiniones</a>
+        <a href="#faq" class="hover:text-blue-600 transition-colors">Preguntas Frecuentes</a>
       </div>
 
       <!-- Acciones de Usuario (Carrito y Menú móvil) -->
       <div class="flex items-center gap-3">
-        <!-- Botón del Carrito con Badge Interactivo (Slide 7) -->
+        <!-- Botón del Carrito con Badge Interactivo -->
         <button 
           id="open-cart-btn" 
           class="relative p-2.5 rounded-xl border border-slate-200 text-slate-700 hover:text-blue-600 hover:border-blue-400 bg-white shadow-xs transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500/40"
@@ -98,7 +99,8 @@
       <a href="#inicio" class="block py-2 text-slate-700 font-medium hover:text-blue-600">Inicio</a>
       <a href="#catalogo" class="block py-2 text-slate-700 font-medium hover:text-blue-600">Catálogo</a>
       <a href="#beneficios" class="block py-2 text-slate-700 font-medium hover:text-blue-600">Beneficios</a>
-      <a href="#criterios" class="block py-2 text-slate-700 font-medium hover:text-blue-600">Criterios del Proyecto</a>
+      <a href="#testimonios" class="block py-2 text-slate-700 font-medium hover:text-blue-600">Opiniones</a>
+      <a href="#faq" class="block py-2 text-slate-700 font-medium hover:text-blue-600">Preguntas Frecuentes</a>
     </div>
   </header>
 
@@ -109,19 +111,19 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        <!-- Texto y llamadas a la acción -->
+        <!-- Texto y llamadas a la acción comerciales -->
         <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 text-blue-800 text-xs font-semibold tracking-wide uppercase">
             <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
-            Proyecto Integrador Final • Módulo Frontend
+            🔥 Nueva Colección 2025 • Hasta 40% OFF
           </div>
 
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            E-Commerce Interactivo <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Full Responsive</span>
+            Tecnología y Estilo <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">a tu Alcance</span>
           </h1>
 
           <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0">
-            Aplicación web desarrollada con <strong>HTML5 semántico</strong>, <strong>Tailwind CSS</strong>, <strong>JavaScript ES6+</strong>, consumo dinámico de APIs con <strong>fetch()</strong> y control de versiones con <strong>Git & GitHub</strong>.
+            Descubre nuestra cuidada selección de dispositivos inteligentes, audio premium, accesorios y moda moderna con envío express y garantía oficial en cada compra.
           </p>
 
           <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
@@ -147,46 +149,78 @@
             </button>
           </div>
 
-          <!-- Badges de tecnologías requeridas (Slide 2 & 4) -->
-          <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs text-slate-500 font-medium">
-            <span class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-xs">HTML5 Semántico</span>
-            <span class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-xs">Tailwind CSS</span>
-            <span class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-xs">JavaScript Async/Await</span>
-            <span class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-xs">LocalStorage</span>
-            <span class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-xs">Git & GitHub</span>
+          <!-- Badges de Confianza y Beneficios de Compra -->
+          <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs text-slate-600 font-medium">
+            <span class="inline-flex items-center gap-1.5 bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-xs">
+              <span class="text-blue-600">🚚</span> Envío Gratis > $50
+            </span>
+            <span class="inline-flex items-center gap-1.5 bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-xs">
+              <span class="text-emerald-600">🔒</span> Pago 100% Seguro
+            </span>
+            <span class="inline-flex items-center gap-1.5 bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-xs">
+              <span class="text-amber-500">🛡️</span> Garantía 12 Meses
+            </span>
+            <span class="inline-flex items-center gap-1.5 bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-xs">
+              <span class="text-indigo-600">⚡</span> Despacho en 24h
+            </span>
           </div>
         </div>
 
-        <!-- Tarjeta visual de presentación interactiva (Slide 6 demo) -->
+        <!-- Tarjeta de Oferta Destacada de la Semana -->
         <div class="lg:col-span-5">
-          <div class="relative bg-white rounded-3xl p-6 shadow-2xl border border-slate-200/80">
+          <div class="relative bg-white rounded-3xl p-6 sm:p-7 shadow-2xl border border-slate-100 hover:shadow-indigo-500/10 transition-shadow">
+            <!-- Header de la tarjeta -->
             <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-4">
-              <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-rose-500"></span>
-                <span class="w-3 h-3 rounded-full bg-amber-500"></span>
-                <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
-              </div>
-              <span class="text-xs font-mono text-slate-400">proyecto-integrador.html</span>
+              <span class="inline-flex items-center gap-1.5 bg-rose-100 text-rose-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                <span class="w-2 h-2 rounded-full bg-rose-600 animate-pulse"></span>
+                ⚡ Oferta Flash -40%
+              </span>
+              <span class="text-xs font-semibold text-slate-500">Quedan 4 unidades</span>
             </div>
             
-            <div class="space-y-3 font-mono text-xs text-slate-600 bg-slate-900 text-slate-200 p-4 rounded-2xl overflow-x-auto">
-              <p><span class="text-pink-400">&lt;header</span> <span class="text-amber-300">class=</span><span class="text-emerald-400">"bg-blue-600 text-white"</span><span class="text-pink-400">&gt;</span></p>
-              <p class="pl-4"><span class="text-pink-400">&lt;h1&gt;</span>TechStore IDT<span class="text-pink-400">&lt;/h1&gt;</span></p>
-              <p><span class="text-pink-400">&lt;/header&gt;</span></p>
-              <p><span class="text-pink-400">&lt;main</span> <span class="text-amber-300">class=</span><span class="text-emerald-400">"grid grid-cols-1 md:grid-cols-2"</span><span class="text-pink-400">&gt;</span></p>
-              <p class="pl-4 text-slate-400">// Diapositiva 6: Estructura HTML & Tailwind</p>
-              <p class="pl-4 text-emerald-400">&lt;!-- Carrito con LocalStorage y API --&gt;</p>
-              <p><span class="text-pink-400">&lt;/main&gt;</span></p>
+            <!-- Contenido del producto estrella -->
+            <div class="flex flex-col sm:flex-row items-center gap-5">
+              <div class="w-full sm:w-44 h-44 bg-slate-50 rounded-2xl p-3 flex items-center justify-center border border-slate-100 shrink-0">
+                <img 
+                  src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80" 
+                  alt="Auriculares Inalámbricos Noise Cancelling Pro" 
+                  class="max-h-36 object-contain hover:scale-105 transition-transform"
+                >
+              </div>
+
+              <div class="flex-1 text-center sm:text-left">
+                <div class="text-amber-500 text-xs font-medium mb-1">
+                  ★★★★★ <span class="text-slate-400 font-semibold">(4.8 • +240 reseñas)</span>
+                </div>
+                <h3 class="text-base font-bold text-slate-900 leading-tight">
+                  Auriculares Inalámbricos Noise Cancelling Pro
+                </h3>
+                <p class="text-xs text-slate-500 mt-1.5 line-clamp-2">
+                  Cancelación de ruido activa híbrida, audio Hi-Fi y hasta 40 horas de autonomía.
+                </p>
+
+                <div class="mt-3 flex items-baseline gap-2 justify-center sm:justify-start">
+                  <span class="text-2xl font-black text-slate-900">$149.99</span>
+                  <span class="text-xs text-slate-400 line-through">$249.99</span>
+                </div>
+              </div>
             </div>
 
-            <div class="mt-4 flex items-center justify-between text-xs text-slate-500">
-              <span class="flex items-center gap-1 font-semibold text-emerald-600">
+            <!-- Botón de Acción Directa -->
+            <div class="mt-5 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <span class="text-xs font-medium text-emerald-600 flex items-center gap-1">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                100% Criterios Cumplidos
+                Envío Gratis incluido
               </span>
-              <span>IDT FrontEnd • 2025</span>
+
+              <button 
+                id="hero-deal-buy-btn"
+                class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-md shadow-blue-500/20 transition-all hover:scale-105"
+              >
+                Aprovechar Oferta
+              </button>
             </div>
           </div>
         </div>
@@ -216,7 +250,7 @@
       <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm mb-8 space-y-4">
         
         <div class="flex flex-col lg:flex-row gap-4 justify-between items-center">
-          <!-- Input de Búsqueda en tiempo real (Slide 7) -->
+          <!-- Input de Búsqueda en tiempo real -->
           <div class="relative w-full lg:max-w-md">
             <input 
               type="text" 
@@ -258,7 +292,7 @@
 
       </div>
 
-      <!-- Grid de Productos (Slide 6 & 15: Grid Responsivo) -->
+      <!-- Grid de Productos: Rejilla Responsiva Multi-columna -->
       <div 
         id="products-grid" 
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
@@ -286,7 +320,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12">
           <h2 class="text-3xl font-extrabold text-slate-900">¿Por qué elegir TechStore?</h2>
-          <p class="text-sm text-slate-500 mt-2">Garantías y características implementadas en la arquitectura frontend</p>
+          <p class="text-sm text-slate-500 mt-2">Comodidad, seguridad y el mejor servicio post-venta en cada una de tus compras</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -324,53 +358,188 @@
     </section>
 
     <!-- ==========================================
-         SECCION: CRITERIOS DE EVALUACION (Slide 15)
+         SECCION: TESTIMONIOS Y OPINIONES REALES
          ========================================== -->
-    <section id="criterios" class="bg-slate-900 text-white py-16">
+    <section id="testimonios" class="bg-slate-900 text-white py-16 sm:py-20 border-t border-slate-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div class="text-center max-w-2xl mx-auto mb-12">
-          <span class="text-blue-400 text-xs font-bold uppercase tracking-wider">Cumplimiento Académico</span>
-          <h2 class="text-3xl font-extrabold mt-1">Criterios de Revisión del Proyecto (Slide 15)</h2>
-          <p class="text-slate-400 text-sm mt-2">Detalle de cómo esta implementación responde a cada punto exigido en el curso</p>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-900/60 border border-blue-500/30 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-3">
+            ⭐ Calificación 4.9 / 5
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Lo que dicen nuestros clientes</h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-2">Más de 5,000 personas ya disfrutan de sus compras en TechStore</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700">
-            <div class="text-blue-400 font-bold text-lg mb-2">1. HTML Semántico y Accesible</div>
-            <p class="text-slate-300 text-sm">Uso correcto de etiquetas <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code> y <code>&lt;footer&gt;</code> con atributos <code>aria-label</code> y textos alternativos.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Testimonio 1 -->
+          <div class="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-6 flex flex-col justify-between hover:border-slate-600 transition-colors">
+            <div>
+              <div class="flex items-center gap-1 text-amber-400 text-sm mb-3">
+                ★★★★★
+              </div>
+              <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                "Los auriculares inalámbricos son espectaculares. La cancelación de ruido supera a marcas mucho más caras y la batería dura casi una semana de trabajo. Llegaron en menos de 24 horas."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-700/60">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 flex items-center justify-center font-bold text-sm text-white">
+                SR
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">Sofía Ramírez</h4>
+                <span class="text-xs text-emerald-400 flex items-center gap-1">
+                  ✓ Compradora Verificada
+                </span>
+              </div>
+            </div>
           </div>
 
-          <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700">
-            <div class="text-blue-400 font-bold text-lg mb-2">2. Diseño Responsivo</div>
-            <p class="text-slate-300 text-sm">Adaptado para smartphones, tablets y pantallas de escritorio mediante el sistema de rejilla y utilidades de Tailwind CSS (<code>grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4</code>).</p>
+          <!-- Testimonio 2 -->
+          <div class="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-6 flex flex-col justify-between hover:border-slate-600 transition-colors">
+            <div>
+              <div class="flex items-center gap-1 text-amber-400 text-sm mb-3">
+                ★★★★★
+              </div>
+              <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                "Excelente experiencia de compra. El proceso fue súper fluido desde el carrito hasta el checkout. El smartwatch mide con gran precisión y la pantalla AMOLED se ve perfecta en exteriores."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-700/60">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-600 flex items-center justify-center font-bold text-sm text-white">
+                CM
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">Carlos Méndez</h4>
+                <span class="text-xs text-emerald-400 flex items-center gap-1">
+                  ✓ Comprador Verificado
+                </span>
+              </div>
+            </div>
           </div>
 
-          <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700">
-            <div class="text-blue-400 font-bold text-lg mb-2">3. Código Limpio y Comentado</div>
-            <p class="text-slate-300 text-sm">Estructura modular en archivos separados (<code>app.js</code>, <code>cart.js</code>, <code>styles.css</code>) con documentación de funciones y buenas prácticas.</p>
+          <!-- Testimonio 3 -->
+          <div class="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-6 flex flex-col justify-between hover:border-slate-600 transition-colors">
+            <div>
+              <div class="flex items-center gap-1 text-amber-400 text-sm mb-3">
+                ★★★★★
+              </div>
+              <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                "Aproveché el envío gratis superando los $50 y todo vino impecablemente embalado. Da gusto comprar en tiendas que cuidan tanto el servicio y la atención al cliente."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-700/60">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-purple-500 to-pink-600 flex items-center justify-center font-bold text-sm text-white">
+                VP
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">Valentina Pereira</h4>
+                <span class="text-xs text-emerald-400 flex items-center gap-1">
+                  ✓ Compradora Verificada
+                </span>
+              </div>
+            </div>
           </div>
 
-          <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700">
-            <div class="text-blue-400 font-bold text-lg mb-2">4. Control de Versiones con Git</div>
-            <p class="text-slate-300 text-sm">Inicialización con <code>git init</code>, archivo <code>.gitignore</code>, commits atómicos y desarrollo en ramas colaborativas (<code>feature/maquetacion-y-carrito</code>).</p>
-          </div>
-
-          <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700">
-            <div class="text-blue-400 font-bold text-lg mb-2">5. Interactividad con JavaScript</div>
-            <p class="text-slate-300 text-sm">Consumo de API con <code>fetch()</code>, manejo de eventos (click, input, change), renderizado dinámico del DOM y almacenamiento en <code>localStorage</code>.</p>
-          </div>
-
-          <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700">
-            <div class="text-blue-400 font-bold text-lg mb-2">6. Prototipo & Presentación</div>
-            <p class="text-slate-300 text-sm">Estructura lista para defensa oral con guía didáctica, capturas y justificación de decisiones en el <code>README.md</code>.</p>
-          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECCION: PREGUNTAS FRECUENTES (FAQ)
+         ========================================== -->
+    <section id="faq" class="bg-white py-16 sm:py-20 border-t border-slate-200">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Preguntas Frecuentes</h2>
+          <p class="text-sm text-slate-500 mt-2">Todo lo que necesitas saber antes y después de comprar</p>
+        </div>
+
+        <div class="space-y-4">
+          
+          <div class="border border-slate-200 rounded-2xl p-5 hover:border-blue-300 transition-colors bg-slate-50/50">
+            <h3 class="text-base font-bold text-slate-800 mb-2 flex items-center gap-2">
+              <span class="text-blue-600 font-extrabold">Q.</span> ¿Cuánto demora la entrega de mi pedido?
+            </h3>
+            <p class="text-sm text-slate-600 pl-6 leading-relaxed">
+              Todos los pedidos se procesan y despachan en menos de 24 horas hábiles. El tiempo promedio de entrega es de 24 a 48 horas en ciudades principales y de 3 a 4 días en el resto del territorio nacional.
+            </p>
+          </div>
+
+          <div class="border border-slate-200 rounded-2xl p-5 hover:border-blue-300 transition-colors bg-slate-50/50">
+            <h3 class="text-base font-bold text-slate-800 mb-2 flex items-center gap-2">
+              <span class="text-blue-600 font-extrabold">Q.</span> ¿Cómo obtengo el beneficio de envío gratis?
+            </h3>
+            <p class="text-sm text-slate-600 pl-6 leading-relaxed">
+              El envío gratuito se activa de forma automática en tu carrito en cualquier compra que alcance o supere los <strong>$50.00</strong>. No necesitas ingresar ningún cupón adicional.
+            </p>
+          </div>
+
+          <div class="border border-slate-200 rounded-2xl p-5 hover:border-blue-300 transition-colors bg-slate-50/50">
+            <h3 class="text-base font-bold text-slate-800 mb-2 flex items-center gap-2">
+              <span class="text-blue-600 font-extrabold">Q.</span> ¿Qué medios de pago puedo utilizar?
+            </h3>
+            <p class="text-sm text-slate-600 pl-6 leading-relaxed">
+              Aceptamos tarjetas de crédito y débito (Visa, Mastercard, American Express), transferencias bancarias directas y plataformas de pago electrónico protegidas bajo cifrado SSL de 256 bits.
+            </p>
+          </div>
+
+          <div class="border border-slate-200 rounded-2xl p-5 hover:border-blue-300 transition-colors bg-slate-50/50">
+            <h3 class="text-base font-bold text-slate-800 mb-2 flex items-center gap-2">
+              <span class="text-blue-600 font-extrabold">Q.</span> ¿Los productos tienen garantía oficial?
+            </h3>
+            <p class="text-sm text-slate-600 pl-6 leading-relaxed">
+              Absolutamente. Todos nuestros artículos son 100% nuevos y originales, e incluyen 12 meses de garantía directa de fábrica más una política de devolución sin costo de 30 días si el producto no cumple tus expectativas.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECCION: CLUB TECHSTORE (Newsletter & Descuento)
+         ========================================== -->
+    <section id="newsletter" class="bg-gradient-to-r from-blue-700 via-indigo-600 to-blue-800 text-white py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        <span class="inline-block bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider backdrop-blur-xs">
+          Club TechStore
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Recibe un 15% de Descuento en tu Primera Orden
+        </h2>
+        <p class="text-blue-100 text-sm sm:text-base max-w-xl mx-auto">
+          Suscríbete a nuestro boletín semanal y sé el primero en enterarte de nuevos lanzamientos, ofertas flash y promociones exclusivas.
+        </p>
+
+        <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto pt-2">
+          <input 
+            type="email" 
+            id="newsletter-email" 
+            required 
+            placeholder="Ingresa tu correo electrónico..." 
+            class="px-4 py-3.5 rounded-xl text-sm text-slate-900 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-white flex-1"
+          >
+          <button 
+            type="submit" 
+            class="bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm px-6 py-3.5 rounded-xl transition-all shadow-lg hover:scale-105 active:scale-95"
+          >
+            Suscribirme
+          </button>
+        </form>
+
+        <p class="text-xs text-blue-200">
+          🔒 Respetamos tu privacidad. Puedes cancelar tu suscripción en cualquier momento con un solo clic.
+        </p>
       </div>
     </section>
   </main>
 
   <!-- ==========================================
-       DRAWER LATERAL DEL CARRITO (Slide 7)
+       DRAWER LATERAL DEL CARRITO
        ========================================== -->
   <div id="cart-backdrop" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-50 hidden transition-opacity"></div>
   
@@ -517,28 +686,83 @@
   <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
   <!-- ==========================================
-       FOOTER SEMANTICO (Slide 6 & 15)
+       FOOTER PROFESIONAL DE E-COMMERCE
        ========================================== -->
-  <footer class="bg-gray-800 text-white text-center p-6 border-t border-gray-700 mt-auto">
-    <div class="max-w-7xl mx-auto px-4 space-y-4">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-gray-700/80 pb-4 text-sm">
-        <div class="flex items-center gap-2 font-bold text-lg text-blue-400">
-          <span>TechStore IDT</span>
+  <footer class="bg-slate-900 text-white border-t border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-slate-800">
+        
+        <!-- Columna 1: Marca y descripción -->
+        <div class="space-y-4 md:col-span-1">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white font-bold">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+            </div>
+            <span class="text-xl font-extrabold tracking-tight">TechStore</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Tu tienda en línea de referencia en tecnología de punta, accesorios inteligentes y moda moderna con envíos a todo el país.
+          </p>
+          <div class="text-xs text-emerald-400 flex items-center gap-1.5 font-medium">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Compras 100% protegidas y encriptadas
+          </div>
         </div>
-        <p class="text-gray-400 text-xs sm:text-sm">
-          Proyecto Integrador • Curso de Frontend • FullStack
-        </p>
-        <div class="flex items-center gap-4 text-gray-400 text-xs">
-          <span>HTML5</span>
-          <span>•</span>
-          <span>Tailwind CSS</span>
-          <span>•</span>
-          <span>JavaScript ES6+</span>
+
+        <!-- Columna 2: Enlaces Rápidos -->
+        <div class="space-y-3">
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider">Navegación</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#inicio" class="hover:text-blue-400 transition-colors">Inicio</a></li>
+            <li><a href="#catalogo" class="hover:text-blue-400 transition-colors">Catálogo Completo</a></li>
+            <li><a href="#beneficios" class="hover:text-blue-400 transition-colors">Nuestros Beneficios</a></li>
+            <li><a href="#testimonios" class="hover:text-blue-400 transition-colors">Opiniones de Clientes</a></li>
+            <li><a href="#faq" class="hover:text-blue-400 transition-colors">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Categorías Populares -->
+        <div class="space-y-3">
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider">Categorías</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#catalogo" class="hover:text-blue-400 transition-colors">Dispositivos y Audio</a></li>
+            <li><a href="#catalogo" class="hover:text-blue-400 transition-colors">Smartwatches & Gadgets</a></li>
+            <li><a href="#catalogo" class="hover:text-blue-400 transition-colors">Joyería & Accesorios</a></li>
+            <li><a href="#catalogo" class="hover:text-blue-400 transition-colors">Indumentaria Masculina</a></li>
+            <li><a href="#catalogo" class="hover:text-blue-400 transition-colors">Indumentaria Femenina</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Medios de Pago y Seguridad -->
+        <div class="space-y-3">
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider">Pagos Aceptados</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Aceptamos las principales tarjetas y billeteras electrónicas del mercado:
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs font-semibold text-slate-300">
+            <span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">Visa</span>
+            <span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">Mastercard</span>
+            <span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">MercadoPago</span>
+            <span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">PayPal</span>
+            <span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">Transferencia</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright inferior -->
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <p>&copy; 2025 TechStore Online. Todos los derechos reservados.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-slate-200 transition-colors">Términos y Condiciones</a>
+          <a href="#" class="hover:text-slate-200 transition-colors">Política de Privacidad</a>
+          <a href="#" class="hover:text-slate-200 transition-colors">Defensa al Consumidor</a>
         </div>
       </div>
-      <p class="text-xs text-gray-400">
-        &copy; 2025 - Proyecto Final. Desarrollado aplicando buenas prácticas de maquetación, arquitectura limpia y control de versiones con Git/GitHub.
-      </p>
+
     </div>
   </footer>
 

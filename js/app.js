@@ -5,7 +5,7 @@
  * ====================================================================
  */
 
-import { addToCart, updateCartUI, checkout, clearCart } from './cart.js';
+import { addToCart, updateCartUI, checkout, clearCart, showToast } from './cart.js';
 
 // URL de la API pública recomendada para e-commerce
 const API_URL = 'https://fakestoreapi.com/products';
@@ -106,11 +106,13 @@ const CATEGORY_NAMES = {
  * Inicialización al cargar el DOM (Slide 7: DOMContentLoaded)
  */
 document.addEventListener('DOMContentLoaded', async () => {
-  console.log(' Inicializando TechStore IDT...');
+  console.log('🚀 Inicializando TechStore Online...');
   setupNavigationEvents();
+  setupHeroEvents();
   setupFilterEvents();
   setupSearchEvents();
   setupSortEvents();
+  setupNewsletterEvents();
   setupCartDrawerEvents();
   updateCartUI();
 
@@ -498,4 +500,44 @@ function setupNavigationEvents() {
 
 function setupFilterEvents() {
   // Inicialización de filtros adicionales si se requiere
+}
+
+/**
+ * Evento del botón de oferta destacada en el banner principal
+ */
+function setupHeroEvents() {
+  const heroDealBtn = document.getElementById('hero-deal-buy-btn');
+  if (heroDealBtn) {
+    heroDealBtn.onclick = () => {
+      // Producto estrella en oferta
+      const heroProduct = allProducts.find(p => p.id === 101) || {
+        id: 101,
+        title: "Auriculares Inalámbricos Noise Cancelling Pro",
+        price: 149.99,
+        category: "electronics",
+        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80"
+      };
+
+      addToCart(heroProduct);
+    };
+  }
+}
+
+/**
+ * Manejo del formulario de suscripción al boletín con cupón de descuento
+ */
+function setupNewsletterEvents() {
+  const form = document.getElementById('newsletter-form');
+  const emailInput = document.getElementById('newsletter-email');
+
+  if (form && emailInput) {
+    form.onsubmit = (e) => {
+      e.preventDefault();
+      const email = emailInput.value.trim();
+      if (email) {
+        showToast(`🎉 ¡Cupón TECH15 enviado con éxito a ${email}!`, 'success');
+        form.reset();
+      }
+    };
+  }
 }
