@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Proyecto Integrador Frontend - Tienda virtual interactiva con carrito funcional, consumo de APIs y maquetación responsiva moderna.">
+  <title>TechStore IDT | Proyecto Final Frontend</title>
+
+  <!-- Tailwind CSS CDN (v3.4) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Estilos complementarios y animaciones -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- ==========================================
+       HEADER & BARRA DE NAVEGACION (Slide 6 & 15)
+       ========================================== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4" aria-label="Navegación principal">
+      
+      <!-- Logotipo y Nombre del Proyecto -->
+      <a href="#" class="flex items-center gap-3 group focus:outline-none">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-blue-700 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">TechStore</span>
+          <span class="text-xs block text-slate-500 font-semibold tracking-wider uppercase">Grupo iDT • Frontend</span>
+        </div>
+      </a>
+
+      <!-- Enlaces de navegación desktop -->
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <a href="#inicio" class="hover:text-blue-600 transition-colors">Inicio</a>
+        <a href="#catalogo" class="hover:text-blue-600 transition-colors">Catálogo</a>
+        <a href="#beneficios" class="hover:text-blue-600 transition-colors">Beneficios</a>
+        <a href="#criterios" class="hover:text-blue-600 transition-colors">Criterios de Evaluación</a>
+      </div>
+
+      <!-- Acciones de Usuario (Carrito y Menú móvil) -->
+      <div class="flex items-center gap-3">
+        <!-- Botón del Carrito con Badge Interactivo (Slide 7) -->
+        <button 
+          id="open-cart-btn" 
+          class="relative p-2.5 rounded-xl border border-slate-200 text-slate-700 hover:text-blue-600 hover:border-blue-400 bg-white shadow-xs transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500/40"
+          aria-label="Abrir carrito de compras"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+          <!-- Badge reactivo con contador -->
+          <span 
+            id="cart-badge" 
+            class="hidden absolute -top-1.5 -right-1.5 bg-rose-500 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm"
+          >
+            0
+          </span>
+        </button>
+
+        <!-- Botón Menú móvil (Hamburguesa) -->
+        <button 
+          id="mobile-menu-btn" 
+          class="md:hidden p-2.5 rounded-xl border border-slate-200 text-slate-700 hover:text-blue-600 bg-white"
+          aria-label="Abrir menú"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menú móvil desplegable -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 py-3 space-y-2">
+      <a href="#inicio" class="block py-2 text-slate-700 font-medium hover:text-blue-600">Inicio</a>
+      <a href="#catalogo" class="block py-2 text-slate-700 font-medium hover:text-blue-600">Catálogo</a>
+      <a href="#beneficios" class="block py-2 text-slate-700 font-medium hover:text-blue-600">Beneficios</a>
+      <a href="#criterios" class="block py-2 text-slate-700 font-medium hover:text-blue-600">Criterios del Proyecto</a>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       HERO SECTION (Banner Principal)
+       ========================================== -->
+  <section id="inicio" class="relative overflow-hidden bg-gradient-to-b from-blue-50/70 via-white to-slate-50 py-16 sm:py-24 border-b border-slate-200/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Texto y llamadas a la acción -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 text-blue-800 text-xs font-semibold tracking-wide uppercase">
+            <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+            Proyecto Integrador Final • Módulo Frontend
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            E-Commerce Interactivo <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Full Responsive</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0">
+            Aplicación web desarrollada con <strong>HTML5 semántico</strong>, <strong>Tailwind CSS</strong>, <strong>JavaScript ES6+</strong>, consumo dinámico de APIs con <strong>fetch()</strong> y control de versiones con <strong>Git & GitHub</strong>.
+          </p>
+
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <a 
+              href="#catalogo" 
+              class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-blue-500/25 transition-all hover:scale-105"
+            >
+              <span>Explorar Catálogo</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+
+            <button 
+              id="hero-cart-cta"
+              onclick="document.getElementById('open-cart-btn').click()"
+              class="inline-flex items-center gap-2 bg-white hover:bg-slate-100 text-slate-700 font-semibold px-6 py-3.5 rounded-xl border border-slate-300 shadow-sm transition-all"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              <span>Ver Carrito</span>
+            </button>
+          </div>
+
+          <!-- Badges de tecnologías requeridas (Slide 2 & 4) -->
+          <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs text-slate-500 font-medium">
+            <span class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-xs">HTML5 Semántico</span>
+            <span class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-xs">Tailwind CSS</span>
+            <span class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-xs">JavaScript Async/Await</span>
+            <span class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-xs">LocalStorage</span>
+            <span class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-xs">Git & GitHub</span>
+          </div>
+        </div>
+
+        <!-- Tarjeta visual de presentación interactiva (Slide 6 demo) -->
+        <div class="lg:col-span-5">
+          <div class="relative bg-white rounded-3xl p-6 shadow-2xl border border-slate-200/80">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-4">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+              </div>
+              <span class="text-xs font-mono text-slate-400">proyecto-integrador.html</span>
+            </div>
+            
+            <div class="space-y-3 font-mono text-xs text-slate-600 bg-slate-900 text-slate-200 p-4 rounded-2xl overflow-x-auto">
+              <p><span class="text-pink-400">&lt;header</span> <span class="text-amber-300">class=</span><span class="text-emerald-400">"bg-blue-600 text-white"</span><span class="text-pink-400">&gt;</span></p>
+              <p class="pl-4"><span class="text-pink-400">&lt;h1&gt;</span>TechStore IDT<span class="text-pink-400">&lt;/h1&gt;</span></p>
+              <p><span class="text-pink-400">&lt;/header&gt;</span></p>
+              <p><span class="text-pink-400">&lt;main</span> <span class="text-amber-300">class=</span><span class="text-emerald-400">"grid grid-cols-1 md:grid-cols-2"</span><span class="text-pink-400">&gt;</span></p>
+              <p class="pl-4 text-slate-400">// Diapositiva 6: Estructura HTML & Tailwind</p>
+              <p class="pl-4 text-emerald-400">&lt;!-- Carrito con LocalStorage y API --&gt;</p>
+              <p><span class="text-pink-400">&lt;/main&gt;</span></p>
+            </div>
+
+            <div class="mt-4 flex items-center justify-between text-xs text-slate-500">
+              <span class="flex items-center gap-1 font-semibold text-emerald-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                100% Criterios Cumplidos
+              </span>
+              <span>IDT FrontEnd • 2025</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECCION PRINCIPAL: CATALOGO DE PRODUCTOS
+       ========================================== -->
+  <main class="flex-grow">
+    <section id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      
+      <!-- Encabezado del catálogo -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+          <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Catálogo de Productos</h2>
+          <p class="text-sm text-slate-500 mt-1">Explora productos cargados asíncronamente desde la API REST</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span id="products-count" class="text-xs font-semibold px-3 py-1.5 bg-slate-200 text-slate-700 rounded-lg">Cargando...</span>
+        </div>
+      </div>
+
+      <!-- Barra de Filtros, Búsqueda y Ordenamiento -->
+      <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm mb-8 space-y-4">
+        
+        <div class="flex flex-col lg:flex-row gap-4 justify-between items-center">
+          <!-- Input de Búsqueda en tiempo real (Slide 7) -->
+          <div class="relative w-full lg:max-w-md">
+            <input 
+              type="text" 
+              id="search-input" 
+              placeholder="Buscar por nombre, categoría o detalle..." 
+              class="w-full pl-10 pr-10 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500 transition-all"
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-400 absolute left-3 top-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <button 
+              id="clear-search-btn" 
+              class="hidden absolute right-3 top-2.5 text-slate-400 hover:text-slate-600 text-sm font-bold p-0.5"
+              title="Limpiar búsqueda"
+            >
+              ✕
+            </button>
+          </div>
+
+          <!-- Selector de Ordenamiento -->
+          <div class="flex items-center gap-3 w-full lg:w-auto justify-end">
+            <label for="sort-select" class="text-xs font-semibold text-slate-500 whitespace-nowrap">Ordenar por:</label>
+            <select 
+              id="sort-select" 
+              class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/40"
+            >
+              <option value="default">Por Defecto</option>
+              <option value="price-asc">Precio: Menor a Mayor</option>
+              <option value="price-desc">Precio: Mayor a Menor</option>
+              <option value="rating">Mejor Calificados</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Categorías (Filtros dinámicos con botones) -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-1 custom-scrollbar" id="category-pills">
+          <!-- Generado dinámicamente desde app.js -->
+        </div>
+
+      </div>
+
+      <!-- Grid de Productos (Slide 6 & 15: Grid Responsivo) -->
+      <div 
+        id="products-grid" 
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+      >
+        <!-- Las tarjetas se generan dinámicamente con JavaScript -->
+      </div>
+
+      <!-- Estado vacío cuando no hay resultados de búsqueda -->
+      <div id="products-empty" class="hidden text-center py-16 bg-white rounded-3xl border border-slate-200 p-8">
+        <div class="w-16 h-16 bg-slate-100 text-slate-400 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-slate-800">No encontramos productos coincidentes</h3>
+        <p class="text-sm text-slate-500 mt-1 max-w-sm mx-auto">Intenta buscar con otros términos o selecciona otra categoría.</p>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         SECCION BENEFICIOS / VALOR AGREGADO
+         ========================================== -->
+    <section id="beneficios" class="bg-white py-16 border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h2 class="text-3xl font-extrabold text-slate-900">¿Por qué elegir TechStore?</h2>
+          <p class="text-sm text-slate-500 mt-2">Garantías y características implementadas en la arquitectura frontend</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4 font-bold">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800 mb-2">Envío Ultrarrápido</h3>
+            <p class="text-sm text-slate-600">Entregas dentro de las 24 horas y seguimiento en tiempo real con costo transparente.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-4 font-bold">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800 mb-2">Garantía Asegurada</h3>
+            <p class="text-sm text-slate-600">Todos los productos cuentan con 12 meses de garantía oficial y soporte post-venta.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mb-4 font-bold">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800 mb-2">Checkout Seguro</h3>
+            <p class="text-sm text-slate-600">Integración con pasarelas de pago y almacenamiento persistente en el dispositivo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECCION: CRITERIOS DE EVALUACION (Slide 15)
+         ========================================== -->
+    <section id="criterios" class="bg-slate-900 text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-blue-400 text-xs font-bold uppercase tracking-wider">Cumplimiento Académico</span>
+          <h2 class="text-3xl font-extrabold mt-1">Criterios de Revisión del Proyecto (Slide 15)</h2>
+          <p class="text-slate-400 text-sm mt-2">Detalle de cómo esta implementación responde a cada punto exigido en el curso</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700">
+            <div class="text-blue-400 font-bold text-lg mb-2">1. HTML Semántico y Accesible</div>
+            <p class="text-slate-300 text-sm">Uso correcto de etiquetas <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code> y <code>&lt;footer&gt;</code> con atributos <code>aria-label</code> y textos alternativos.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700">
+            <div class="text-blue-400 font-bold text-lg mb-2">2. Diseño Responsivo</div>
+            <p class="text-slate-300 text-sm">Adaptado para smartphones, tablets y pantallas de escritorio mediante el sistema de rejilla y utilidades de Tailwind CSS (<code>grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4</code>).</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700">
+            <div class="text-blue-400 font-bold text-lg mb-2">3. Código Limpio y Comentado</div>
+            <p class="text-slate-300 text-sm">Estructura modular en archivos separados (<code>app.js</code>, <code>cart.js</code>, <code>styles.css</code>) con documentación de funciones y buenas prácticas.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700">
+            <div class="text-blue-400 font-bold text-lg mb-2">4. Control de Versiones con Git</div>
+            <p class="text-slate-300 text-sm">Inicialización con <code>git init</code>, archivo <code>.gitignore</code>, commits atómicos y desarrollo en ramas colaborativas (<code>feature/maquetacion-y-carrito</code>).</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700">
+            <div class="text-blue-400 font-bold text-lg mb-2">5. Interactividad con JavaScript</div>
+            <p class="text-slate-300 text-sm">Consumo de API con <code>fetch()</code>, manejo de eventos (click, input, change), renderizado dinámico del DOM y almacenamiento en <code>localStorage</code>.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700">
+            <div class="text-blue-400 font-bold text-lg mb-2">6. Prototipo & Presentación</div>
+            <p class="text-slate-300 text-sm">Estructura lista para defensa oral con guía didáctica, capturas y justificación de decisiones en el <code>README.md</code>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       DRAWER LATERAL DEL CARRITO (Slide 7)
+       ========================================== -->
+  <div id="cart-backdrop" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-50 hidden transition-opacity"></div>
+  
+  <aside 
+    id="cart-drawer" 
+    class="fixed top-0 right-0 h-full w-full sm:w-[420px] bg-white z-50 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out"
+    aria-label="Panel de Carrito de Compras"
+  >
+    <!-- Header del Carrito -->
+    <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+      <div class="flex items-center gap-2">
+        <h3 class="text-lg font-bold text-slate-800">Carrito de Compras</h3>
+        <span id="cart-drawer-count" class="text-xs font-semibold text-slate-500 bg-slate-200 px-2 py-0.5 rounded-full">(0 items)</span>
+      </div>
+      <button 
+        id="close-cart-btn" 
+        class="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+        aria-label="Cerrar carrito"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Lista de Items en el Carrito -->
+    <div class="flex-1 overflow-y-auto p-5 custom-scrollbar">
+      <div id="cart-items-container" class="space-y-3">
+        <!-- Renderizado dinámicamente desde cart.js -->
+      </div>
+
+      <!-- Estado vacío del carrito -->
+      <div id="cart-empty-state" class="text-center py-20">
+        <div class="w-20 h-20 bg-blue-50 text-blue-400 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+        </div>
+        <p class="text-base font-bold text-slate-800">Tu carrito está vacío</p>
+        <p class="text-xs text-slate-500 mt-1 max-w-xs mx-auto">Agrega tus productos favoritos desde el catálogo para comenzar tu pedido.</p>
+      </div>
+    </div>
+
+    <!-- Footer del Carrito con Totales y Checkout -->
+    <div id="cart-footer" class="hidden p-5 border-t border-slate-100 bg-slate-50/50 space-y-4">
+      <div class="space-y-1.5 text-xs text-slate-600">
+        <div class="flex justify-between">
+          <span>Subtotal</span>
+          <span id="cart-subtotal" class="font-semibold text-slate-800">$0.00</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Impuestos estimados (10%)</span>
+          <span id="cart-tax" class="font-semibold text-slate-800">$0.00</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Envío</span>
+          <span id="cart-shipping" class="font-semibold text-emerald-600">Gratis</span>
+        </div>
+        <div class="border-t border-slate-200 pt-2 flex justify-between text-base font-extrabold text-slate-900">
+          <span>Total a Pagar</span>
+          <span id="cart-total" class="text-blue-600">$0.00</span>
+        </div>
+      </div>
+
+      <div class="space-y-2">
+        <button 
+          id="checkout-btn" 
+          class="w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-blue-500/25 transition-all flex items-center justify-center gap-2"
+        >
+          <span>Finalizar Compra</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+
+        <button 
+          id="clear-cart-btn" 
+          class="w-full text-xs font-semibold text-slate-500 hover:text-rose-600 py-1.5 transition-colors"
+        >
+          Vaciar Carrito
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================
+       MODAL DE VISTA RAPIDA DE PRODUCTO
+       ========================================== -->
+  <div id="product-detail-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+    <div id="detail-modal-backdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs"></div>
+    <div class="relative bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl z-10 animate-fade-in overflow-hidden max-h-[90vh] overflow-y-auto">
+      <button id="close-detail-modal-btn" class="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-700 rounded-xl hover:bg-slate-100">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+        <div class="bg-slate-50 rounded-2xl p-6 flex items-center justify-center h-64">
+          <img id="modal-product-img" src="" alt="" class="max-h-56 object-contain">
+        </div>
+        <div class="space-y-4">
+          <span id="modal-product-category" class="bg-blue-50 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider"></span>
+          <h3 id="modal-product-title" class="text-xl font-bold text-slate-900 leading-snug"></h3>
+          <p id="modal-product-desc" class="text-xs text-slate-600 leading-relaxed"></p>
+          <div class="text-2xl font-extrabold text-blue-600" id="modal-product-price"></div>
+          <button 
+            id="modal-add-to-cart-btn" 
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
+          >
+            <span>Agregar al Carrito</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL DE EXITO DE CHECKOUT SIMULADO
+       ========================================== -->
+  <div id="checkout-success-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+    <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs"></div>
+    <div class="relative bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl z-10 text-center animate-fade-in">
+      <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <h3 class="text-2xl font-extrabold text-slate-900">¡Compra Exitosa!</h3>
+      <p class="text-sm text-slate-600 mt-2">Tu pedido ha sido procesado correctamente con un total de <span id="checkout-success-amount" class="font-bold text-blue-600"></span>.</p>
+      <p class="text-xs text-slate-400 mt-1">El carrito se ha vaciado y la orden fue guardada.</p>
+      <button 
+        id="close-success-modal-btn" 
+        class="mt-6 w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-4 rounded-xl transition-all"
+      >
+        Continuar Comprando
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       TOAST NOTIFICATIONS CONTAINER (Flotante)
+       ========================================== -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- ==========================================
+       FOOTER SEMANTICO (Slide 6 & 15)
+       ========================================== -->
+  <footer class="bg-gray-800 text-white text-center p-6 border-t border-gray-700 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 space-y-4">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-gray-700/80 pb-4 text-sm">
+        <div class="flex items-center gap-2 font-bold text-lg text-blue-400">
+          <span>TechStore IDT</span>
+        </div>
+        <p class="text-gray-400 text-xs sm:text-sm">
+          Proyecto Integrador • Curso de Frontend • FullStack
+        </p>
+        <div class="flex items-center gap-4 text-gray-400 text-xs">
+          <span>HTML5</span>
+          <span>•</span>
+          <span>Tailwind CSS</span>
+          <span>•</span>
+          <span>JavaScript ES6+</span>
+        </div>
+      </div>
+      <p class="text-xs text-gray-400">
+        &copy; 2025 - Proyecto Final. Desarrollado aplicando buenas prácticas de maquetación, arquitectura limpia y control de versiones con Git/GitHub.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts de la Aplicación -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
