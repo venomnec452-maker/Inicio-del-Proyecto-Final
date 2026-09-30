@@ -7,7 +7,7 @@
 
 ## 📋 Tabla de Contenidos
 1. [Descripción del Proyecto](#descripción-del-proyecto)
-2. [Objetivos Cumplidos (Diapositiva 2 y 15)](#objetivos-cumplidos)
+2. [Objetivos Cumplidos (PDF)](#objetivos-cumplidos)
 3. [Estructura del Proyecto](#estructura-del-proyecto)
 4. [Tecnologías Utilizadas](#tecnologías-utilizadas)
 5. [Guía Paso a Paso para Ejecutar el Proyecto](#guía-paso-a-paso-para-ejecutar-el-proyecto)
